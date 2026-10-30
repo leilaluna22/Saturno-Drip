@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administración | Saturno Drip</title>
+    <link rel="icon" type="image/png" href="/img/SDlogo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="site-header"></header>
+
+    <main class="admin-page">
+        <div class="admin-top">
+            <div>
+                <h2>Panel de administración</h2>
+                <p class="admin-sub">Controlá el stock de tus prendas y mirá los pedidos.</p>
+            </div>
+            <button class="btn-primary small" id="newBtn" type="button">＋ Nueva prenda</button>
+        </div>
+
+        <div class="admin-stats" id="stats"></div>
+
+        <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="products" role="tab">Prendas y stock</button>
+            <button class="tab" data-tab="orders" role="tab">Pedidos</button>
+        </div>
+
+        <!-- FORMULARIO -->
+        <form class="admin-form" id="productForm" hidden novalidate>
+            <h3 id="formTitle">Nueva prenda</h3>
+            <input type="hidden" id="pId">
+
+            <div class="form-grid">
+                <div>
+                    <label for="pName">Nombre</label>
+                    <input type="text" id="pName" maxlength="80" required>
+
+                    <label for="pDesc">Descripción</label>
+                    <textarea id="pDesc" rows="3" maxlength="300"></textarea>
+
+                    <label for="pPrice">Precio (en pesos)</label>
+                    <input type="number" id="pPrice" min="1" step="1" required>
+                </div>
+                <div>
+                    <label for="pImage">Foto</label>
+                    <input type="file" id="pImage" accept="image/png,image/jpeg,image/webp">
+                    <small class="hint">PNG, JPG o WEBP. Máximo 5 MB.</small>
+                    <div class="img-preview" id="imgPreview"><span>Sin foto</span></div>
+                </div>
+            </div>
+
+            <p class="form-error" id="formError" role="alert" hidden></p>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary small" id="saveBtn">Guardar</button>
+                <button type="button" class="btn-secondary small" id="cancelBtn">Cancelar</button>
+            </div>
+        </form>
+
+        <!-- PRENDAS -->
+        <section id="tab-products">
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Foto</th><th>Prenda</th><th>Precio</th><th>Estado</th><th>Acciones</th></tr>
+                    </thead>
+                    <tbody id="productsBody"><tr><td colspan="5" class="estado-carga">Cargando…</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PEDIDOS -->
+        <section id="tab-orders" hidden>
+            <div id="ordersList"><p class="estado-carga">Cargando…</p></div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 Saturno Drip</p></footer>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

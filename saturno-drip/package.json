@@ -1,0 +1,14 @@
+{
+  "name": "saturno-drip",
+  "version": "1.0.0",
+  "description": "Catálogo y tienda online de Saturno Drip (prendas únicas, carrito, Mercado Pago y panel de administración)",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
